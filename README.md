@@ -20,21 +20,6 @@ This repository is focused on fast production of social-ready videos for YouTube
 - Optional background music mixing for final export
 - 1080x1920 vertical MP4 output
 
-## Pipeline Overview
-
-1. Topic prompt input
-2. Script generation (scene-based narration + visual prompts)
-3. Scene image generation
-4. Voiceover generation
-5. Video assembly with FFmpeg
-6. Final social-ready export
-
-## Requirements
-
-- Python 3.9+
-- FFmpeg available in `PATH`
-- OpenAI API key for script and image generation
-
 ## Quick Start
 
 ```bash
@@ -51,6 +36,25 @@ Optional: download free background tracks.
 ```bash
 python download_music.py
 ```
+
+## License
+
+MIT. See [LICENSE](LICENSE).
+
+## Pipeline Overview
+
+1. Topic prompt input
+2. Script generation (scene-based narration + visual prompts)
+3. Scene image generation
+4. Voiceover generation
+5. Video assembly with FFmpeg
+6. Final social-ready export
+
+## Requirements
+
+- Python 3.9+
+- FFmpeg available in `PATH`
+- OpenAI API key for script and image generation
 
 ## Usage
 
@@ -84,7 +88,3 @@ Output is written as `*_short.mp4` in the project directory.
 - Keep `.env` local and never commit API keys.
 - You can place your own music files in `music/` (`.mp3`, `.wav`, `.m4a`).
 - Cost per generated video depends on model usage and number of scenes.
-
-## License
-
-MIT. See [LICENSE](LICENSE).
