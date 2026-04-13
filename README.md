@@ -1,48 +1,49 @@
-# Bangla AI Shorts Generator
+# AI Shorts Generator
 
-Automatically generate Bangla-language YouTube Shorts / Facebook Reels / TikTok videos from a single topic prompt.
+Generate short-form vertical videos from a single topic prompt using AI-generated scripts, images, and voiceover.
 
-**Pipeline:** GPT-4o script → DALL-E 3 images → gTTS Bangla voiceover → FFmpeg (Ken Burns + music) → 1080×1920 MP4
+This repository is focused on fast production of social-ready videos for YouTube Shorts, TikTok, and Facebook Reels.
 
----
+## Features
 
-## How it works
+- Prompt-to-video workflow from one command
+- Bangla narration support with text-to-speech
+- AI image generation for scene-based storytelling
+- FFmpeg-based rendering with smooth zoom and transitions
+- Optional background music mixing for final export
+- 1080x1920 vertical MP4 output
 
-1. **Script** — GPT-4o writes a 6–8 scene story in Bangla (narration) with English image prompts
-2. **Images** — DALL-E 3 generates one cinematic 9:16 image per scene
-3. **Voiceover** — gTTS converts Bangla narration to speech (no extra API key needed)
-4. **Video clips** — FFmpeg applies a Ken Burns zoom effect and fades on each image+audio pair
-5. **Music** — A random royalty-free track from `music/` is mixed at 18% volume under the voice
-6. **Output** — A single `title_id_short.mp4` ready to upload
+## Pipeline Overview
 
----
+1. Topic prompt input
+2. Script generation (scene-based narration + visual prompts)
+3. Scene image generation
+4. Voiceover generation
+5. Video assembly with FFmpeg
+6. Final social-ready export
 
 ## Requirements
 
 - Python 3.9+
-- FFmpeg (must be in PATH)
-- An OpenAI API key (GPT-4o + DALL-E 3)
+- FFmpeg available in `PATH`
+- OpenAI API key for script and image generation
 
----
-
-## Setup
+## Quick Start
 
 ```bash
-# 1. Clone the repo
 git clone https://github.com/sakib-maho/ai-shorts.git
 cd ai-shorts
-
-# 2. Install dependencies
+python3 -m venv .venv
+source .venv/bin/activate
 pip install -r requirements.txt
-
-# 3. Add your OpenAI API key
-echo "OPENAI_API_KEY=sk-..." > .env
-
-# 4. Download free background music (optional)
-python download_music.py
+echo "OPENAI_API_KEY=your_key_here" > .env
 ```
 
----
+Optional: download free background tracks.
+
+```bash
+python download_music.py
+```
 
 ## Usage
 
@@ -52,41 +53,31 @@ python generate_short.py "why the universe is expanding"
 python generate_short.py "5 facts about the Titanic"
 ```
 
-The output file is saved in the current directory as `title_sessionid_short.mp4`.
+Output is written as `*_short.mp4` in the project directory.
 
----
-
-## Background music
-
-Run `python download_music.py` once to download 4 free royalty-free tracks (lofi, cinematic, upbeat, dramatic) from Pixabay into the `music/` folder. `generate_short.py` picks one at random each run.
-
-You can also drop your own `.mp3` / `.wav` / `.m4a` files into `music/` — they will be picked up automatically.
-
----
-
-## Output specs
+## Output Specs
 
 | Property | Value |
-|---|---|
-| Resolution | 1080 × 1920 (9:16 vertical) |
+| --- | --- |
+| Resolution | 1080 x 1920 |
+| Aspect ratio | 9:16 |
 | Frame rate | 30 fps |
 | Video codec | H.264 |
-| Audio codec | AAC 192k, 44100 Hz stereo |
-| Duration | ~30–45 seconds |
+| Audio codec | AAC |
+| Typical duration | 30-45 seconds |
 
----
+## Project Files
 
-## Cost estimate (OpenAI)
+- `generate_short.py` - Main pipeline entrypoint
+- `download_music.py` - Optional royalty-free music fetcher
+- `requirements.txt` - Python dependencies
 
-| Step | Model | Approx. cost per video |
-|---|---|---|
-| Script | GPT-4o | ~$0.01 |
-| Images (7 scenes) | DALL-E 3 standard | ~$0.28 |
-| Voiceover | gTTS (free) | $0.00 |
-| **Total** | | **~$0.30** |
+## Notes
 
----
+- Keep `.env` local and never commit API keys.
+- You can place your own music files in `music/` (`.mp3`, `.wav`, `.m4a`).
+- Cost per generated video depends on model usage and number of scenes.
 
 ## License
 
-MIT — see [LICENSE](LICENSE)
+MIT. See [LICENSE](LICENSE).
