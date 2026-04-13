@@ -1,5 +1,12 @@
 # AI Shorts Generator
 
+<!-- BrandCloud:readme-standard -->
+[![Maintained](https://img.shields.io/badge/Maintained-yes-brightgreen.svg)](#)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Showcase](https://img.shields.io/badge/Portfolio-Showcase-blue.svg)](#)
+
+_Part of the `sakib-maho` project showcase series with consistent documentation and quality standards._
+
 Generate short-form vertical videos from a single topic prompt using AI-generated scripts, images, and voiceover.
 
 This repository is focused on fast production of social-ready videos for YouTube Shorts, TikTok, and Facebook Reels.
