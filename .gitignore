@@ -1,20 +1,30 @@
-# Python-related
-*.pyc
-**/__pycache__/
-
-# Media Files
-*.wav
-*.mp3
-*.gif
-*.mp4
-*.webm
-*.m4a
-
-# Virtual environment
-venv/
-.venv/
-
 # Environment variables
 .env
+.env.*
 
-*.log
+# macOS
+.DS_Store
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+*.egg
+venv/
+.venv/
+env/
+
+# Media / output files
+*.mp4
+*.mp3
+*.aac
+*.wav
+music/
+
+# Test artifacts
+test_audio.*
