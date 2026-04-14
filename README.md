@@ -1,12 +1,5 @@
 # AI Shorts Generator
 
-<!-- BrandCloud:readme-standard -->
-[![Maintained](https://img.shields.io/badge/Maintained-yes-brightgreen.svg)](#)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
-[![Showcase](https://img.shields.io/badge/Portfolio-Showcase-blue.svg)](#)
-
-_Part of the `sakib-maho` project showcase series with consistent documentation and quality standards._
-
 Generate short-form vertical videos from a single topic prompt using AI-generated scripts, images, and voiceover.
 
 This repository is focused on fast production of social-ready videos for YouTube Shorts, TikTok, and Facebook Reels.
@@ -19,6 +12,21 @@ This repository is focused on fast production of social-ready videos for YouTube
 - FFmpeg-based rendering with smooth zoom and transitions
 - Optional background music mixing for final export
 - 1080x1920 vertical MP4 output
+
+## Pipeline Overview
+
+1. Topic prompt input
+2. Script generation (scene-based narration + visual prompts)
+3. Scene image generation
+4. Voiceover generation
+5. Video assembly with FFmpeg
+6. Final social-ready export
+
+## Requirements
+
+- Python 3.9+
+- FFmpeg available in `PATH`
+- OpenAI API key for script and image generation
 
 ## Quick Start
 
@@ -37,26 +45,7 @@ Optional: download free background tracks.
 python download_music.py
 ```
 
-## License
-
-MIT. See [LICENSE](LICENSE).
-
-## Pipeline Overview
-
-1. Topic prompt input
-2. Script generation (scene-based narration + visual prompts)
-3. Scene image generation
-4. Voiceover generation
-5. Video assembly with FFmpeg
-6. Final social-ready export
-
-## Requirements
-
-- Python 3.9+
-- FFmpeg available in `PATH`
-- OpenAI API key for script and image generation
-
-## Usage
+## CLI Examples
 
 ```bash
 python generate_short.py "কৃত্রিম বুদ্ধিমত্তার ভবিষ্যৎ"
@@ -88,3 +77,7 @@ Output is written as `*_short.mp4` in the project directory.
 - Keep `.env` local and never commit API keys.
 - You can place your own music files in `music/` (`.mp3`, `.wav`, `.m4a`).
 - Cost per generated video depends on model usage and number of scenes.
+
+## License
+
+MIT. See [LICENSE](LICENSE).
